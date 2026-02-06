@@ -135,7 +135,7 @@ export default function Hero() {
       <div className="absolute bottom-16 left-8 md:bottom-20 md:left-12 z-10 max-w-4xl">
         <h1
           ref={headlineRef}
-          className="text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] font-bold text-white leading-none tracking-tight opacity-0"
+          className="text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold text-white leading-none tracking-tight opacity-0"
           style={{ fontFamily: 'Work Sans, sans-serif' }}
         >
           Building Digital Precision
