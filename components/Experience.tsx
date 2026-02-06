@@ -16,8 +16,8 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    company: "Datapolitic",
-    role: "Développeur Fullstack",
+    company: "Datapolitics",
+    role: "Fullstack Developer",
     period: "Sept 2024 - Dec 2024",
     year: "2024",
     highlights: [
@@ -28,8 +28,8 @@ const experiences: ExperienceItem[] = [
     ],
   },
   {
-    company: "Efficientis",
-    role: "Développeur Fullstack",
+    company: "EfficientIP",
+    role: "Fullstack Developer",
     period: "Sept 2023 - Jan 2024",
     year: "2023",
     highlights: [
@@ -41,7 +41,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     company: "cours-en-visio",
-    role: "Développeur Fullstack",
+    role: "Fullstack Developer",
     period: "June 2019 - Aug 2019",
     year: "2019",
     highlights: [
@@ -54,7 +54,7 @@ const experiences: ExperienceItem[] = [
 ];
 
 const systemArchitecture = [
-  { label: "Creative Coding", tech: "GSAP • WebGL • Canvas" },
+  { label: "Creative Coding", tech: "GSAP • WebGL • PlayCanvas • Blender" },
   { label: "UI Architecture", tech: "React • Next.js • Design Systems" },
   { label: "Machine Learning", tech: "RAG • ETL Pipelines • Data Engineering" },
 ];
@@ -137,8 +137,8 @@ export default function Experience() {
               key={index}
               className="timeline-item relative mb-16 md:mb-20 pl-8 md:pl-32"
             >
-              {/* Year marker */}
-              <div className="absolute left-0 md:left-16 top-0 text-purple-primary text-sm font-light">
+              {/* Year marker - hidden on mobile */}
+              <div className="absolute left-12 top-0 hidden md:block text-purple-primary text-sm font-light">
                 {exp.year}
               </div>
 
@@ -179,7 +179,7 @@ export default function Experience() {
         {/* System Architecture */}
         <div>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-12 tracking-tight">
-            System Architecture
+            Technical Skills
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -135,21 +135,11 @@ export default function Hero() {
       <div className="absolute bottom-16 left-8 md:bottom-20 md:left-12 z-10 max-w-4xl">
         <h1
           ref={headlineRef}
-          className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-none tracking-tight opacity-0"
+          className="text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] font-bold text-white leading-none tracking-tight opacity-0"
           style={{ fontFamily: 'Work Sans, sans-serif' }}
         >
           Building Digital Precision
         </h1>
-      </div>
-
-      {/* Minimal scroll indicator */}
-      <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 z-10">
-        <div className="flex items-center gap-3 text-white/30 text-xs tracking-wider">
-          <div className="w-px h-12 bg-white/20" />
-          <span className="rotate-90 origin-center whitespace-nowrap" style={{ writingMode: 'vertical-rl' }}>
-            SCROLL
-          </span>
-        </div>
       </div>
     </div>
   );
