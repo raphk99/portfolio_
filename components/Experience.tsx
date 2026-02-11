@@ -1,57 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface ExperienceItem {
-  company: string;
-  role: string;
-  period: string;
-  year: string;
-  highlights: string[];
-}
-
-const experiences: ExperienceItem[] = [
-  {
-    company: "Datapolitics",
-    role: "Fullstack Developer",
-    period: "Sept 2024 - Dec 2024",
-    year: "2024",
-    highlights: [
-      "Designed & implemented end-to-end ETL pipeline for French public tender indexing",
-      "Developed RAG system integration leading to 2 upsell opportunities",
-      "Complete front-end architecture refactor with reusable components & automated testing",
-      "Contributed to strategic ideation & feature prioritization",
-    ],
-  },
-  {
-    company: "EfficientIP",
-    role: "Fullstack Developer",
-    period: "Sept 2023 - Jan 2024",
-    year: "2023",
-    highlights: [
-      "Built real-time ETL synchronization pipeline for user ticket data",
-      "Optimized system performance with strict data security protocols & rate limiting",
-      "Developed role-based access control dashboards with OWASP protection",
-      "Integrated ML model for automated recommendations & decision support",
-    ],
-  },
-  {
-    company: "cours-en-visio",
-    role: "Fullstack Developer",
-    period: "June 2019 - Aug 2019",
-    year: "2019",
-    highlights: [
-      "Created Python REST API for comprehensive quiz management system",
-      "Designed & deployed relational database for question tracking",
-      "Built monitoring dashboards connected to existing reporting API",
-      "Integrated Stripe payment module with PCI-DSS compliance",
-    ],
-  },
-];
+import Link from "next/link";
+import { experiences } from "@/data/experiences";
 
 const systemArchitecture = [
   { label: "Creative Coding", tech: "GSAP • WebGL • PlayCanvas • Blender" },
@@ -60,57 +16,77 @@ const systemArchitecture = [
 ];
 
 export default function Experience() {
+  const [activeId, setActiveId] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const items = sectionRef.current.querySelectorAll(".timeline-item");
-    const architectureItems = sectionRef.current.querySelectorAll(".arch-item");
+    const ctx = gsap.context(() => {
+      const items = sectionRef.current?.querySelectorAll(".timeline-item");
+      const architectureItems = sectionRef.current?.querySelectorAll(".arch-item");
 
-    items.forEach((item, index) => {
-      gsap.fromTo(
-        item,
-        {
-          opacity: 0,
-          x: -50,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: item,
-            start: "top bottom-=100",
-            end: "top center",
-            toggleActions: "play none none reverse",
+      items?.forEach((item, index) => {
+        // Animation
+        gsap.fromTo(
+          item,
+          {
+            opacity: 0,
+            x: -50,
           },
-        }
-      );
-    });
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top bottom-=100",
+              end: "top center",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
 
-    architectureItems.forEach((item, index) => {
-      gsap.fromTo(
-        item,
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: index * 0.1,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: item,
-            start: "top bottom-=50",
-            toggleActions: "play none none reverse",
+        // Mobile Tooltip Visibility Logic
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top center",
+          end: "bottom center",
+          onToggle: (self) => {
+            if (self.isActive) {
+              setActiveId(experiences[index].id);
+            } else {
+              setActiveId((prev) => (prev === experiences[index].id ? null : prev));
+            }
           },
-        }
-      );
-    });
+        });
+      });
+
+      architectureItems?.forEach((item, index) => {
+        gsap.fromTo(
+          item,
+          {
+            opacity: 0,
+            y: 30,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top bottom-=50",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -146,15 +122,22 @@ export default function Experience() {
               <div className="absolute left-[-4px] md:left-[92px] top-2 w-2 h-2 bg-purple-primary rounded-full transition-all duration-300 hover:scale-150" />
 
               {/* Content */}
-              <div className="group">
-                <div className="border-l border-white/5 hover:border-purple-primary/30 transition-all duration-500 pl-6">
+              <Link href={`/experience/${exp.id}`} className="block group cursor-pointer">
+                <div className="border-l border-white/5 group-hover:border-purple-primary/30 transition-all duration-500 pl-6 relative">
+                  <div
+                    className={`absolute top-0 right-0 transition-opacity duration-300 text-xs text-purple-primary/70 font-light flex items-center gap-2 ${
+                      activeId === exp.id ? "opacity-100" : "opacity-0"
+                    } md:opacity-0 md:group-hover:opacity-100`}
+                  >
+                    <span>Click to know more</span>
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </div>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                     <h3 className="text-2xl font-semibold text-white group-hover:text-purple-primary transition-colors">
                       {exp.company}
                     </h3>
-                    <span className="text-sm text-white/40 font-light mt-1 md:mt-0">
-                      {exp.period}
-                    </span>
                   </div>
                   <p className="text-purple-primary text-base font-light mb-4">
                     {exp.role}
@@ -171,7 +154,7 @@ export default function Experience() {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

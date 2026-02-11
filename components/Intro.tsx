@@ -71,44 +71,15 @@ export default function Intro() {
             ref={imageRef}
             className="relative aspect-square md:aspect-[4/5] overflow-hidden group"
           >
-            {/* Border frame */}
-            <div className="absolute inset-0 border border-white/10 group-hover:border-purple-primary/30 transition-all duration-500">
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-purple-primary/40" />
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-purple-primary/40" />
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-purple-primary/40" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-purple-primary/40" />
-            </div>
 
-            {/* Placeholder content */}
-            <div className="absolute inset-0 flex items-center justify-center bg-white/5">
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 border border-white/20 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-purple-primary/50"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-                <p className="text-white/30 text-sm font-light">Image placeholder</p>
-              </div>
-            </div>
           </div>
 
           {/* Right side - Text content */}
           <div ref={textRef} className="space-y-6">
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
-                Crafting Digital
-                <span className="block text-purple-primary">Experiences</span>
+                Building Digital
+                <span className="block text-purple-primary">Precision</span>
               </h2>
 
               <div className="w-16 h-px bg-purple-primary/40" />
@@ -116,22 +87,24 @@ export default function Intro() {
 
             <div className="space-y-4 text-white/60 text-base md:text-lg font-light leading-relaxed">
               <p>
-                I'm passionate about software development and the transformative
-                power it holds. My mission is to help brands{" "}
+                Hello, I'm Raphael Kalonji, passionate about leveraging cutting-edge software to solve
+                complex{" "}
                 <span className="text-purple-primary font-normal">
-                  show their true colors
+                  business challenges
                 </span>
-                —to express their unique identity and vision through exceptional
-                digital experiences.
+                . My focus is on engineering scalable, high-performance
+                solutions that drive operational efficiency and measurable
+                growth.
               </p>
 
               <p>
-                Every line of code, every interface, every interaction is an
-                opportunity to{" "}
+                Beyond just writing code, I architect digital ecosystems that
+                align with your{" "}
                 <span className="text-purple-primary font-normal">
-                  develop your brand
-                </span>{" "}
-                in the best way possible—with precision, creativity, and purpose.
+                  strategic goals
+                </span>
+                —ensuring every feature delivers real value, enhances user
+                retention, and secures a competitive advantage.
               </p>
             </div>
 

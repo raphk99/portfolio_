@@ -258,7 +258,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/raphael-kalonji/"
+                  href="https://www.linkedin.com/in/raphael-kalonji-536251231"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between group border-b border-white/5 hover:border-purple-primary/50 pb-4 transition-all duration-300"

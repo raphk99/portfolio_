@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +35,8 @@ export default function Navigation() {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push(`/#${sectionId}`);
     }
   };
 

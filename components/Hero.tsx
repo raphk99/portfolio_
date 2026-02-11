@@ -102,7 +102,7 @@ export default function Hero() {
             ease: "power2.out",
             onStart: () => {
               if (headlineRef.current) {
-                scrambleText(headlineRef.current, "Building Digital Precision", 1.8);
+                scrambleText(headlineRef.current, "Software Engineer", 1.8);
               }
             },
           },
