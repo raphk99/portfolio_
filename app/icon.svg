@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="0" fill="black"/>
+  <text x="50%" y="54%" fill="white" font-family="'Work Sans', sans-serif" font-weight="500" font-size="16" text-anchor="middle" dominant-baseline="middle">RK</text>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&amp;display=swap');
+  </style>
+</svg>

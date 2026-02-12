@@ -142,23 +142,12 @@ export default function Projects() {
               {/* Project Image Placeholder */}
               <div className="flex-1 mb-6 relative overflow-hidden bg-gradient-to-br from-purple-primary/5 to-transparent flex items-center justify-center">
                 <div className="text-center">
-                  <svg 
-                    className="w-16 h-16 mb-4 mx-auto" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="1.5"
-                    style={{ color: '#4413F4' }}
+<span 
+                    className="block text-8xl font-bold mb-4"
+                    style={{ color: '#4413F4', fontFamily: 'Work Sans, sans-serif' }}
                   >
-                    <path d="M9 9a3 3 0 1 1 6 0" />
-                    <path d="M12 12v9" />
-                    <path d="M6 17h.01" />
-                    <path d="M18 17h.01" />
-                    <path d="M7 17a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2" />
-                    <path d="M15 9V7a3 3 0 0 0-6 0v2" />
-                    <path d="M9 3v2" />
-                    <path d="M15 3v2" />
-                  </svg>
+                    1
+                  </span>
                   <div className="text-white/20 text-sm font-light">
                     Project Visual
                   </div>
@@ -254,24 +243,12 @@ export default function Projects() {
               {/* Project Image Placeholder */}
               <div className="flex-1 mb-6 relative overflow-hidden bg-gradient-to-br from-purple-primary/5 to-transparent flex items-center justify-center">
                 <div className="text-center">
-                  <svg 
-                    className="w-16 h-16 mb-4 mx-auto" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="1.5"
-                    style={{ color: '#4413F4' }}
+<span 
+                    className="block text-8xl font-bold mb-4"
+                    style={{ color: '#4413F4', fontFamily: 'Work Sans, sans-serif' }}
                   >
-                    <path d="M12 3v18" />
-                    <path d="M7 7h10" />
-                    <path d="M7 11h10" />
-                    <path d="M8 15l8-4" />
-                    <path d="M8 19h8" />
-                    <circle cx="5" cy="5" r="2" />
-                    <circle cx="19" cy="5" r="2" />
-                    <path d="M12 5V3" />
-                    <path d="M5 12a7 7 0 0 0 14 0" />
-                  </svg>
+                    2
+                  </span>
                   <div className="text-white/20 text-sm font-light">
                     Project Visual
                   </div>
